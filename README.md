@@ -1,75 +1,168 @@
-# React + TypeScript + Vite
+# Project Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive and modern **Project Management Application** built using **React, TypeScript, Tailwind CSS, and Material UI (MUI)**. This project demonstrates modern frontend development practices including reusable components, protected routing, form validation, API integration, Local Storage persistence, responsive layouts, and project management workflows.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📌 Project Overview
 
-## React Compiler
+Project Management System provides a clean and responsive interface for managing projects and tracking their progress. Users can create, edit, delete, search, and filter projects, assign projects to users, and manage project statuses.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The application also includes authentication, protected routes, dashboard statistics, reusable UI components, and persistent project data using Local Storage.
 
-## Expanding the ESLint configuration
+Users are fetched from the **JSONPlaceholder Fake API** and can be assigned to projects during project creation or editing.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+This project was developed as part of the **Frontend Engineering Internship – Assignment No. 6**.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Technologies Used
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Material UI (MUI)
+- React Hook Form
+- Zod
+- React Router DOM
+- React Hot Toast
+- Local Storage
+- JSONPlaceholder Fake API
 
+---
+
+## 📁 Project Structure
+
+```text
+src/
+│
+├── components/
+│   ├── common/
+│   ├── dashboard/
+│   ├── layout/
+│   └── projects/
+│
+├── hooks/
+│   ├── useAuth.ts
+│   ├── useProjects.ts
+│   └── useUsers.ts
+│
+├── mocks/
+│   └── projects.ts
+│
+├── pages/
+│   ├── Dashboard/
+│   ├── Login/
+│   └── Projects/
+│
+├── routes/
+│   ├── AppRoutes.tsx
+│   └── ProtectedRoute.tsx
+│
+├── services/
+│   ├── auth.service.ts
+│   ├── project.service.ts
+│   └── user.service.ts
+│
+├── types/
+│   ├── auth.ts
+│   ├── project.ts
+│   └── user.ts
+│
+├── App.tsx
+├── main.tsx
+└── index.css
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 💻 Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Clone the repository
 
+```bash
+git clone (https://github.com/Mtalha350/Mini-Project-Management)
 ```
+
+### Navigate to the project
+
+```bash
+cd project-management-app
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run the application
+
+```bash
+npm run dev
+```
+
+### Build for production
+
+```bash
+npm run build
+```
+
+---
+
+## 🔐 Demo Credentials
+
+```text
+Email: admin@example.com
+Password: password123
+```
+
+---
+
+## 🌐 Fake API
+
+Users are fetched from **JSONPlaceholder**:
+
+```text
+https://jsonplaceholder.typicode.com/users
+```
+
+The API is used to retrieve user information for project assignment.
+
+Project data is managed through a mock service and persisted in the browser using **Local Storage**.
+
+---
+
+## 💾 Data Persistence
+
+Project data is stored in the browser using Local Storage.
+
+The application:
+
+- Loads projects from Local Storage on startup
+- Saves newly created projects
+- Persists project updates
+- Persists project deletion
+- Restores project data after page refresh
+
+---
+
+## 🔒 Protected Routes
+
+The following application routes are protected and require authentication:
+
+- `/dashboard`
+- `/projects`
+
+Unauthenticated users are redirected to:
+
+```text
+/login
+```
+
+---
+
+## 📄 Acknowledgement
+
+This project was developed for educational purposes as part of **Assignment No. 6** of the **Frontend Engineering Internship** at **Optimus Fox**, under the guidance of **Maheen Nasir**.
